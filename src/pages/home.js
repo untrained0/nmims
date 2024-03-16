@@ -1,8 +1,10 @@
 import React from 'react';
 import image from '../assets/images/receipts.png';
 import logo from '../assets/images/logo.svg';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function Home() {
+    const navigate = useNavigate();
     return (
         <div className="flex flex-col items-center">
             {/* Navbar */}
@@ -11,7 +13,7 @@ function Home() {
                     <img src={logo} alt="Logo" className="w-8 h-8 mr-2" />
                     <span className="text-lg font-semibold">BillWise</span>
                 </div>
-                <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded">Login</button>
+                <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded" onClick={() => navigate('/Signin')}>Login</button>
             </header>
 
             {/* Main Content */}
