@@ -7,10 +7,15 @@ import receiptsImage from '../assets/images/receipts.png';
 import invoicesImage from '../assets/images/invoices.png';
 import cardImage from '../assets/images/crad.png';
 import settingImage from '../assets/images/settingf.png';
+import logo from '../assets/images/logo.svg';
 
 function Navbar() {
     return (
         <div className="navbar">
+            <div className="company-info">
+                <img src={logo} alt="Company Logo" className="company-logo" />
+                <h2 className="company-name">BillWise</h2>
+            </div>
             <div className="navbar-header">
                 <h2>Pipeline</h2>
                 <ul>
@@ -25,11 +30,15 @@ function Navbar() {
                     <li><img src={cardImage} alt="Image 6" /><span>Card statements</span></li>
                 </ul>
             </div>
-            <div className="settings-button">
-                <p><img src={settingImage} alt="Settings" /><span>Settings</span></p>
+            <div className="logo-settings-container">
+                <div className="settings-button">
+                    <p><img src={settingImage} alt="Settings" /><span>Settings</span></p>
+                </div>
             </div>
         </div>
     );
 }
+
+
 
 export default Navbar;
