@@ -6,6 +6,7 @@ import UploadPage from './pages/UploadPage';
 import SigninPage from './pages/SigninPage';
 import LoginScreen from './pages/LoginPage';
 import Home from './pages/home';
+import Upload3 from './pages/upload3';
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                 <Route path="/Signin" element={<SigninPage />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/upload" element={<UploadPage />} />
+                <Route path="/upload3" element={<Upload3 />} />
 
             </Routes>
         </BrowserRouter>
