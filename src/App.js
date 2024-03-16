@@ -14,6 +14,7 @@ function App() {
                 <Route path="/Signin" element={<SigninPage />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/upload" element={<UploadPage />} />
+
             </Routes>
         </BrowserRouter>
         // <SigninPage />
