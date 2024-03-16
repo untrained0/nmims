@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
 import Navbar from '../components/navbar';
+import { Link } from 'react-router-dom';
+import FilePreview from '../components/FilePreview';
+import ProgressBar from '../components/ProgressBar';
+import AlertMessage from './AlertMessage';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
+import { app } from '../firebaseConfig';
+import { generateRandomString } from '../utils/generateRandomString';
 
 function UploadPage() {
     const [file, setFile] = useState();
     const [errorMsg, setErrorMsg] = useState();
+
+    const storage = getStorage(app);
+  const db = getFirestore(app);
 
     const onFileSelect = (file) => {
         console.log(file);
@@ -15,6 +26,48 @@ function UploadPage() {
         setFile(file);
     }
 
+    const uploadFile = (file) => {
+
+        const metadata = {
+          contentType: Image,
+        };
+    
+        // Upload file and metadata to the object 'images/mountains.jpg'
+        const storageRef = ref(storage, 'file-upload/' + file?.name);
+        const uploadTask = uploadBytesResumable(storageRef, file, metadata);
+    
+        // Listen for state changes, errors, and completion of the upload.
+        uploadTask.on('state_changed',
+          (snapshot) => {
+            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log('Upload is ' + progress + '% done');
+            // setProgress(progress);
+    
+            progress === 100 && getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+              console.log('File available at', downloadURL);
+              // {<CompletedUploading />}
+              saveInfo(file, downloadURL);
+            });
+          })
+      }
+    
+      const saveInfo = async (file, fileUrl) => {
+        const docId = generateRandomString();
+        await setDoc(doc(db, "uploadFile", docId), {
+          fileName: file?.name,
+          fileSize: file?.size,
+          fileType: file?.type,
+          fileUrl: fileUrl,
+        //   userEmail: user?.primaryEmailAddress?.emailAddress,
+        //   userName: user?.fullName,
+          password: '',
+          id: docId.trim(),
+        //   shortUrl: process.env.NEXT_PUBLIC_BASE_URL+docId.trim()
+        });
+        // setFileDocId(docId);
+      }
+
     return (
         <>
             <Navbar />
@@ -22,21 +75,21 @@ function UploadPage() {
                 <h1 className="text-3xl font-bold text-center">Upload</h1>
                 <div className="flex justify-center flex-wrap mb-8">
                     <div className="circle m-4">
-                        <a href="">1</a>
+                        <Link to="">1</Link>
                     </div>
                     <div className="circle m-4">
-                        <a href="">2</a>
+                        <Link to="">2</Link>
                     </div>
                     <div className="circle m-4">
-                        <a href="">3</a>
+                        <Link to="">3</Link>
                     </div>
                     <div className="circle m-4">
-                        <a href="">4</a>
+                        <Link to="">4</Link>
                     </div>
                 </div>
                 <hr className="my-8" />
                 <div className="flex items-center justify-center w-full">
-                    <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-64 border-2 border-blue-300 border-dashed rounded-lg cursor-pointer bg-blue-50 light:hover:bg-bray-800 light:bg-gray-700 hover:bg-gray-100 light:border-gray-600 light:hover:border-gray-500 light:hover:bg-gray-600">
+                    <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-32 border-2 border-blue-300 border-dashed rounded-lg cursor-pointer bg-blue-50 text-center">
                         <div className="flex flex-col items-center justify-center pt-5 pb-6">
                             <svg className="w-8 h-8 mb-4 text-blue-500 light:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
@@ -48,6 +101,21 @@ function UploadPage() {
                             onChange={(event) => onFileSelect(event.target.files[0])} />
                     </label>
                 </div>
+
+                <div >
+                {errorMsg ? <AlertMessage msg={errorMsg} /> : null}
+                {file ? <FilePreview file={file} removeFile={() => setFile(null)} /> : null}
+                {/* {progress > 0 ? <ProgressBar progress={progress} /> :
+                 <button disabled={!file} className=' p-2 bg-PRIMARY text-white w-[30%] rounded-full mt-5 disabled:bg-gray-500'
+                    onClick={() => onUploadClick(file)}>
+                    Upload
+                </button>
+                } */}
+                <button className=' p-2 bg-red-500 text-white w-[30%] rounded-full mt-5 disabled:bg-gray-500'
+                    onClick={uploadFile(file)}>
+                    Upload
+                </button>
+            </div>
             </div>
         </>
     );
