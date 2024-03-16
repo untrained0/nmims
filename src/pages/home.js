@@ -32,7 +32,7 @@
 
 // export default Home;
 import React from 'react';
-import image from '../assets/images/receipts.png';
+import image from '../assets/images/simple-icon.svg';
 import logo from '../assets/images/logo.svg';
 import { Navigate, useNavigate } from 'react-router-dom';
 
@@ -43,7 +43,7 @@ function Home() {
             {/* Navbar */}
             <header className="w-full bg-gray-800 text-white p-4 flex justify-between items-center">
                 <div className="flex items-center">
-                    <img src={logo} alt="Logo" className="w-10 h-10 mr-2" />
+                    <img src={image} alt="Logo" className="w-8 h-8 mr-2" />
                     <span className="text-lg font-semibold">BillWise</span>
                 </div>
                 <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded" onClick={() => navigate('/Signin')}>Login</button>
@@ -57,8 +57,8 @@ function Home() {
                     <p className="text-lg mb-4">A place for MSMI Bussiness where they can convert there invoices into digital physical records.</p>
                     <p className="text-lg mb-4">.</p>
                 </div>
-                <div className="w-1/2">
-                <img src={logo} alt="Logo" className="w-45 h-45" /> {/* Adjust size as needed */}
+                <div className="w-1/2 flex justify-center"> {/* Center align the image */}
+                    <img src={image} alt="Logo" className="w-80 h-80" />
                 </div>
             </main>
         </div>

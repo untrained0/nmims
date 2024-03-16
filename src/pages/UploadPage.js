@@ -1,4 +1,4 @@
-import './uploadpage.css'
+import './uploadpage.css';
 import React, { useState } from 'react';
 import Navbar from '../components/navbar';
 import { Link, useNavigate } from 'react-router-dom';
@@ -26,18 +26,18 @@ function UploadPage() {
             setErrorMsg('File size is greater than 2MB');
             return;
         }
-        setErrorMsg(null)
+        setErrorMsg(null);
         setFile(file);
-    }
+    };
 
     const uploadFile = (file) => {
         const metadata = {
             contentType: Image,
         };
-    
+
         const storageRef = ref(storage, 'file-upload/' + file?.name);
         const uploadTask = uploadBytesResumable(storageRef, file, metadata);
-    
+
         uploadTask.on('state_changed',
             (snapshot) => {
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -51,8 +51,8 @@ function UploadPage() {
                         setUploadCompleted(true);
                     });
                 }
-            })
-    }
+            });
+    };
 
     const saveInfo = async (file, fileUrl) => {
         const docId = generateRandomString();
@@ -64,7 +64,7 @@ function UploadPage() {
             password: '',
             id: docId.trim(),
         });
-    }
+    };
 
     return (
         <div className="flex">
@@ -72,17 +72,29 @@ function UploadPage() {
             <div className="container mx-auto p-8">
                 <h1 className="text-3xl font-bold text-center">Upload</h1>
                 <div className="flex justify-center flex-wrap mb-8">
-                    <div className="circle m-4">
-                        <Link to="">1</Link>
+                    <div className="circle-container">
+                        <div className="circle m-4">
+                            <Link to="">1</Link>
+                        </div>
+                        <p className="text-center">Upload</p>
                     </div>
-                    <div className="circle m-4">
-                        <Link to="">2</Link>
+                    {/* <div className="circle-container">
+                        <div className="circle m-4">
+                            <Link to="">2</Link>
+                        </div>
+                        <p className="text-center">Text recoginition</p>
+                    </div> */}
+                    <div className="circle-container">
+                        <div className="circle m-4">
+                            <Link to="">2</Link>
+                        </div>
+                        <p className="text-center">Data extraction</p>
                     </div>
-                    <div className="circle m-4">
-                        <Link to="">3</Link>
-                    </div>
-                    <div className="circle m-4">
-                        <Link to="">4</Link>
+                    <div className="circle-container">
+                        <div className="circle m-4">
+                            <Link to="">3</Link>
+                        </div>
+                        <p className="text-center">Verification</p>
                     </div>
                 </div>
                 <hr className="my-8" />
@@ -90,7 +102,7 @@ function UploadPage() {
                     <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-32 border-2 border-blue-300 border-dashed rounded-lg cursor-pointer bg-blue-50 text-center">
                         <div className="flex flex-col items-center justify-center pt-5 pb-6">
                             <svg className="w-8 h-8 mb-4 text-blue-500 light:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                             </svg>
                             <p className="mb-2 text-lg text-gray-500 light:text-gray-400"><span className="font-semibold">Click to upload</span> or <strong className='text-PRIMARY'>drag</strong> and <strong className='text-PRIMARY'>drop</strong></p>
                             <p className="text-xs text-gray-500 light:text-gray-400">SVG, PNG, JPG or GIF (Max Size: 2MB)</p>

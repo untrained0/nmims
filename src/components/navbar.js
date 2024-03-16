@@ -7,7 +7,7 @@ import receiptsImage from '../assets/images/receipts.png';
 import invoicesImage from '../assets/images/invoices.png';
 import cardImage from '../assets/images/crad.png';
 import settingImage from '../assets/images/settingf.png';
-import logo from '../assets/images/logo.svg';
+import logo from '../assets/images/simple-icon.svg';
 
 function Navbar() {
     return (
