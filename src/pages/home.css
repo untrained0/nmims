@@ -1,0 +1,50 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+}
+
+.logo img {
+    width: 40px;
+    /* Adjust as needed */
+    height: auto;
+    margin-right: 10px;
+}
+
+.login-btn button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.left-section,
+.right-section {
+    width: 50%;
+    padding: 20px;
+}
+
+.left-section {
+    text-align: left;
+}
+
+.right-section img {
+    max-width: 100%;
+    height: auto;
+}
