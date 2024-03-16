@@ -1,20 +1,33 @@
 import React from 'react';
+import './navbar.css'; // Import the CSS file
+import textImage from '../assets/images/text.png';
+import dataImage from '../assets/images/data.png';
+import verificationImage from '../assets/images/verification.png';
+import receiptsImage from '../assets/images/receipts.png';
+import invoicesImage from '../assets/images/invoices.png';
+import cardImage from '../assets/images/crad.png';
+import settingImage from '../assets/images/settingf.png';
 
 function Navbar() {
     return (
-        <div className="navbar w-1/4 h-screen bg-white text-black p-8 float-left border-r">
-            <h2 className="mb-4">Pipeline</h2>
-            <ul>
-                <li className="mb-4">Text Recognition</li>
-                <li className="mb-4">Data extraction</li>
-                <li className="mb-4">Verification</li>
-            </ul>
-            <h2 className="mt-8">Structured Data</h2>
-            <ul>
-                <li className="mb-4">Receipts</li>
-                <li className="mb-4">Invoices</li>
-                <li>Card statements</li>
-            </ul>
+        <div className="navbar">
+            <div className="navbar-header">
+                <h2>Pipeline</h2>
+                <ul>
+                    <li><img src={textImage} alt="Image 1" /><span>Text Recognition</span></li>
+                    <li><img src={dataImage} alt="Image 2" /><span>Data extraction</span></li>
+                    <li><img src={verificationImage} alt="Image 3" /><span>Verification</span></li>
+                </ul>
+                <h2>Structured Data</h2>
+                <ul>
+                    <li><img src={receiptsImage} alt="Image 4" /><span>Receipts</span></li>
+                    <li><img src={invoicesImage} alt="Image 5" /><span>Invoices</span></li>
+                    <li><img src={cardImage} alt="Image 6" /><span>Card statements</span></li>
+                </ul>
+            </div>
+            <div className="settings-button">
+                <p><img src={settingImage} alt="Settings" /><span>Settings</span></p>
+            </div>
         </div>
     );
 }

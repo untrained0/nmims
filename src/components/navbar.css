@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    width: 250px;
+    height: 100vh;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+    box-sizing: border-box;
+    float: left;
+    border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-header h2 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin-bottom: 10px;
+    display: flex;
+    /* Display the items as flex */
+    align-items: center;
+    /* Align items vertically */
+}
+
+.navbar ul li img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.settings-button {
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.settings-button p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.settings-button img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-right: 5px;
+}
