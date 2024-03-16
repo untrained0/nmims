@@ -1,40 +1,36 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
 .navbar {
-    width: 250px;
+    width: 300px;
     height: 100vh;
     background-color: #f9f9f9;
     color: #333;
     padding: 20px;
     box-sizing: border-box;
-    float: left;
     border-right: 1px solid #ccc;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    /* Align items to the start (left) */
 }
 
 .navbar-header h2 {
     margin: 0;
     margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .navbar ul {
     list-style-type: none;
     padding: 0;
+    padding-left: 20px;
+    /* Add left padding to the list items */
 }
 
 .navbar ul li {
     margin-bottom: 10px;
     display: flex;
-    /* Display the items as flex */
     align-items: center;
-    /* Align items vertically */
 }
 
 .navbar ul li img {
@@ -42,6 +38,11 @@ body {
     height: 20px;
     margin-right: 5px;
     cursor: pointer;
+}
+
+.logo-settings-container {
+    margin-top: auto;
+    /* Push logo and settings button to the bottom */
 }
 
 .settings-button {
@@ -61,4 +62,28 @@ body {
     height: 20px;
     cursor: pointer;
     margin-right: 5px;
+}
+
+.company-info {
+    display: flex;
+    align-items: center;
+}
+
+.company-logo {
+    width: 40px;
+    /* Adjust size as needed */
+    height: 40px;
+    /* Adjust size as needed */
+    margin-right: 10px;
+    margin-bottom: 20px;
+    /* Adjust margin as needed */
+}
+
+.company-name {
+    font-size: 2rem;
+    /* Adjust font size as needed */
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 20px;
+    /* Adjust margin as needed */
 }

@@ -5,11 +5,13 @@ import UploadPage from './pages/UploadPage';
 import { SignIn } from '@clerk/clerk-react';
 import SigninPage from './pages/SigninPage';
 import LoginScreen from './pages/LoginPage';
+import Home from './pages/home';
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
+                <Route path="/" element={<Home />} />
                 <Route path="/Login" element={<LoginScreen />} />
                 <Route path="/Signin" element={<SigninPage />} />
                 <Route path="/dashboard" element={<Dashboard />} />

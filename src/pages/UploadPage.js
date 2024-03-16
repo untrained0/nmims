@@ -189,7 +189,7 @@ function UploadPage() {
     }
 
     return (
-        <>
+        <div className="flex">
             <Navbar />
             <div className="container mx-auto p-8">
                 <h1 className="text-3xl font-bold text-center">Upload</h1>
@@ -237,13 +237,13 @@ function UploadPage() {
                 <div>
                     {errorMsg ? <AlertMessage msg={errorMsg} /> : null}
                     {file ? <FilePreview file={file} removeFile={() => setFile(null)} /> : null}
-                    <button className=' p-2 bg-red-500 text-white w-[30%] rounded-full mt-5 disabled:bg-gray-500'
+                    <button className=' p-2 bg-blue-500 text-white w-[100%] rounded-lg mt-5 disabled:bg-gray-500'
                         onClick={uploadFile(file)}>
                         Upload
                     </button>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 
