@@ -19,15 +19,15 @@ function Navbar() {
             <div className="navbar-header">
                 <h2>Pipeline</h2>
                 <ul>
-                    <li><img src={textImage} alt="Image 1" /><span>Text Recognition</span></li>
-                    <li><img src={dataImage} alt="Image 2" /><span>Data extraction</span></li>
-                    <li><img src={verificationImage} alt="Image 3" /><span>Verification</span></li>
+                    <li><img src={textImage} alt="Image 1" /><span><a href="/upload3">Text Recognition</a></span></li>
+                    <li><img src={dataImage} alt="Image 2" /><span><a href="/upload3">Data extraction</a></span></li>
+                    <li><img src={verificationImage} alt="Image 3" /><span><a href="">Verification</a></span></li>
                 </ul>
                 <h2>Structured Data</h2>
                 <ul>
-                    <li><img src={receiptsImage} alt="Image 4" /><span>Receipts</span></li>
-                    <li><img src={invoicesImage} alt="Image 5" /><span>Invoices</span></li>
-                    <li><img src={cardImage} alt="Image 6" /><span>Card statements</span></li>
+                    <li><img src={receiptsImage} alt="Image 4" /><span><a href="">Receipts</a></span></li>
+                    <li><img src={invoicesImage} alt="Image 5" /><span><a href="">Invoices</a></span></li>
+                    <li><img src={cardImage} alt="Image 6" /><span><a href="">Card statements</a></span></li>
                 </ul>
             </div>
             <div className="logo-settings-container">

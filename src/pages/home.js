@@ -54,7 +54,7 @@ function Home() {
                 <div className="w-1/2 p-8">
                     <h1 className="text-4xl font-bold mb-4">Welcome to Our Website</h1>
                     <h1 className="text-4xl font-bold mb-4">BillWise</h1>
-                    <p className="text-lg mb-4">A place for MSMI Bussiness where they can convert there invoices into digital physical records.</p>
+                    <p className="text-lg mb-4">A place for MSME Bussiness where they can convert there invoices into digital physical records.</p>
                     <p className="text-lg mb-4">.</p>
                 </div>
                 <div className="w-1/2 flex justify-center"> {/* Center align the image */}
