@@ -32,7 +32,7 @@ function Navbar() {
             </div>
             <div className="logo-settings-container">
                 <div className="settings-button">
-                    <p><img src={settingImage} alt="Settings" /><span>Settings</span></p>
+                    <p><img src={settingImage} alt="Settings" /><span><a href="/settings">Settings</a></span></p>
                 </div>
             </div>
         </div>
