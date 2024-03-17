@@ -25,7 +25,7 @@ function Navbar() {
                 </ul>
                 <h2>Structured Data</h2>
                 <ul>
-                    <li><img src={receiptsImage} alt="Image 4" /><span><a href="">Receipts</a></span></li>
+                    <li><img src={receiptsImage} alt="Image 4" /><span><a href="/receipt">Receipts</a></span></li>
                     <li><img src={invoicesImage} alt="Image 5" /><span><a href="">Invoices</a></span></li>
                     <li><img src={cardImage} alt="Image 6" /><span><a href="">Card statements</a></span></li>
                 </ul>
