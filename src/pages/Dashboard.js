@@ -1,9 +1,9 @@
-
-import './dashboard.css';
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { app } from "../firebaseConfig";
+import Modal from "react-modal"; // Import the Modal component
+import { useNavigate } from "react-router-dom";
 
 const db = getFirestore(app);
 
@@ -11,6 +11,8 @@ function Dashboard() {
     const [documents, setDocuments] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [documentsPerPage] = useState(5); // Change this value as needed
+    const [selectedImageUrl, setSelectedImageUrl] = useState(null); // Track selected image URL for modal
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,11 +28,19 @@ function Dashboard() {
         fetchData();
     }, []);
 
+    const redirectToUpload3Page = (imageUrl) => {
+        navigate(`/upload3?imageUrl=${encodeURIComponent(imageUrl)}`);
+    };
+    
+
     const indexOfLastDocument = currentPage * documentsPerPage;
     const indexOfFirstDocument = indexOfLastDocument - documentsPerPage;
     const currentDocuments = documents.slice(indexOfFirstDocument, indexOfLastDocument);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    const openModal = (imageUrl) => setSelectedImageUrl(imageUrl);
+    const closeModal = () => setSelectedImageUrl(null);
 
     return (
         <div className="flex">
@@ -78,12 +88,13 @@ function Dashboard() {
                                                 <td className="border px-4 py-2">{doc.fileSize}</td>
                                                 <td className="border px-4 py-2">{doc.fileType}</td>
                                                 <td className="border px-4 py-2">
-                                                    <a href={doc.fileUrl} target="_blank" rel="noopener noreferrer">View</a>
+                                                    <button onClick={() => openModal(doc.fileUrl)}>View</button>
                                                 </td>
                                                 <td className="border px-4 py-2">Extract</td>
                                                 <td className="border px-4 py-2">
-                                                    <a href={`/upload3`}>Start Extraction</a>
-                                                </td>
+                                                <button className="btn-confirm" onClick={() => redirectToUpload3Page(doc.fileUrl)}>Start Extraction</button>
+</td>
+
                                             </tr>
                                         ))}
                                     </tbody>
@@ -114,6 +125,10 @@ function Dashboard() {
                         <p className="text-gray-600">No data extractions</p>
                     </div>
                 </div>
+                <Modal isOpen={!!selectedImageUrl} onRequestClose={closeModal}>
+                    {selectedImageUrl && <img src={selectedImageUrl} alt="Selected Image" />}
+                    <button onClick={closeModal}>Close</button>
+                </Modal>
             </div>
         </div>
     );
