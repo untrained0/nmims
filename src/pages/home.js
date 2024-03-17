@@ -55,7 +55,12 @@ function Home() {
                     <h1 className="text-4xl font-bold mb-4">Welcome to Our Website</h1>
                     <h1 className="text-4xl font-bold mb-4">BillWise</h1>
                     <p className="text-lg mb-4">A place for MSME Bussiness where they can convert there invoices into digital physical records.</p>
-                    <p className="text-lg mb-4">.</p>
+                    <h1 className="text-4xl font-bold mb-4">Problem statement : Operational Efficiencies</h1>
+                    <p className="text-lg mb-4">Effectiveness and Efficiencies in operational processes are key to cost optimization and it can also transcend to direct customer experience.
+
+                        1. Digitization of physical records across different processes.
+
+                        2. Quick & accurate resolution of customer queries via call center operations.</p>
                 </div>
                 <div className="w-1/2 flex justify-center"> {/* Center align the image */}
                     <img src={image} alt="Logo" className="w-80 h-80" />

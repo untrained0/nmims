@@ -52,7 +52,7 @@ function Dashboard() {
                     </h1>
                     <div className="ml-auto">
                         <button className="ask-button px-4 py-2 text-base border border-gray-400 rounded transition duration-300 hover:opacity-80">
-                            <a href="https://huggingface.co/spaces/nielsr/donut-docvqa">Ask me</a>
+                            <a href="https://billwise-jt9nzgm5qobuqg6c62go6j.streamlit.app/">Ask me</a>
                         </button>
                         <button className="upload-button ml-4 px-4 py-2 text-base bg-black text-white rounded transition duration-300 hover:opacity-80">
                             <a href="/upload">Upload</a>
@@ -64,7 +64,7 @@ function Dashboard() {
                     <h3 className="text-lg font-semibold mb-2">Documents in Pipeline</h3>
                     <div
                         className="box1 bg-gray-200 p-4 rounded"
-                        style={{ width: "100%", height: "320px", overflowX: "auto", overflowY: "hidden" }}
+                        style={{ width: "100%", height: "400px", overflowX: "auto", overflowY: "hidden" }}
                     >
                         {currentDocuments.length === 0 ? (
                             <p className="text-gray-600">Pipeline is empty</p>

@@ -42,7 +42,7 @@ function App() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/upload" element={<UploadPage />} />
                 <Route path="/upload3" element={<Upload3 />} />
-                <Route path="/visualize" element={<Vizualization />} />
+                {/* <Route path="/visualize" element={<Dashboard />} /> */}
                 {/* <Route path="/gradio" element={<GradioInterface />} /> Add this route */}
                 <Route path = "/settings" element ={<ProfileSettingPage/>} />
                 <Route path="/receipt" element={<ReceiptVisual />} />

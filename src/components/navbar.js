@@ -14,7 +14,7 @@ function Navbar() {
         <div className="navbar">
             <div className="company-info">
                 <img src={logo} alt="Company Logo" className="company-logo" />
-                <h2 className="company-name">BillWise</h2>
+                <h2 className="company-name"><a href="/dashboard">BillWise</a></h2>
             </div>
             <div className="navbar-header">
                 <h2>Pipeline</h2>
