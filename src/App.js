@@ -11,6 +11,8 @@ import Upload3 from './pages/upload3';
 import GradioInterface from './GradleInterface';
 import InvoicePage from './pages/VerificationOfFile';
 import Vizualization from './pages/Visualition';
+import ProfileSettingPage from './pages/ProfileSettingPage';
+import ReceiptVisual from './pages/receiptsvisual';
 
 function App() {
   const invoiceData = {
@@ -33,7 +35,7 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                {/* <Route path="/" element={<Home />} /> */}
+                <Route path="/" element={<Home />} />
                 <Route path="/invoice" element={<InvoicePage invoiceData={invoiceData}/>} />
                 <Route path="/Login" element={<LoginScreen />} />
                 <Route path="/Signin" element={<SigninPage />} />
@@ -42,6 +44,9 @@ function App() {
                 <Route path="/upload3" element={<Upload3 />} />
                 <Route path="/visualize" element={<Vizualization />} />
                 {/* <Route path="/gradio" element={<GradioInterface />} /> Add this route */}
+                <Route path = "/settings" element ={<ProfileSettingPage/>} />
+                <Route path="/receipt" element={<ReceiptVisual />} />
+
             </Routes>
         </BrowserRouter>
     );

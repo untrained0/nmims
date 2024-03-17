@@ -25,14 +25,14 @@ function Navbar() {
                 </ul>
                 <h2>Structured Data</h2>
                 <ul>
-                    <li><img src={receiptsImage} alt="Image 4" /><span><a href="">Receipts</a></span></li>
+                    <li><img src={receiptsImage} alt="Image 4" /><span><a href="/receipt">Receipts</a></span></li>
                     <li><img src={invoicesImage} alt="Image 5" /><span><a href="">Invoices</a></span></li>
                     <li><img src={cardImage} alt="Image 6" /><span><a href="">Card statements</a></span></li>
                 </ul>
             </div>
             <div className="logo-settings-container">
                 <div className="settings-button">
-                    <p><img src={settingImage} alt="Settings" /><span>Settings</span></p>
+                    <p><img src={settingImage} alt="Settings" /><span><a href="/settings">Settings</a></span></p>
                 </div>
             </div>
         </div>
