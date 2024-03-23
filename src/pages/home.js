@@ -46,7 +46,7 @@ function Home() {
                     <img src={image} alt="Logo" className="w-8 h-8 mr-2" />
                     <span className="text-lg font-semibold">BillWise</span>
                 </div>
-                <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded" onClick={() => navigate('/Signin')}>Login</button>
+                <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded" onClick={() => navigate('/Signin')}>Sign Up</button>
             </header>
 
             {/* Main Content */}

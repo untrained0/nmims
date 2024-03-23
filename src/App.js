@@ -15,23 +15,40 @@ import ProfileSettingPage from './pages/ProfileSettingPage';
 import ReceiptVisual from './pages/receiptsvisual';
 
 function App() {
-  const invoiceData = {
-    "invoice_no": "01-143008",
-    "date": "09/01/2019",
-    "time": "20:01:11",
-    "cashier": "01",
-    "items": [
-        {
-            "description": "Plastic",
-            "quantity": 2,
-            "price": 15.50,
-            "amount": 31.00
-        }
-    ],
-    "total_amount": 31.00,
-    "cash_received": 101.00,
-    "change": 70.00
-};
+    const invoiceData = {
+        "invoice_number": "INV0029",
+        "invoice_date": "2022-10-28",
+        "terms": "On Receipt",
+        "customer": {
+            "name": "Jon Hertz",
+            "address": "1231231231",
+            "email": "jon@invoicesimple.com"
+        },
+        "items": [
+            {
+                "description": "Lawn Mowing",
+                "rate": 25.89,
+                "quantity": 33,
+                "amount": 854.37
+            },
+            {
+                "description": "Weeds pulled also",
+                "rate": 50.00,
+                "quantity": 6,
+                "amount": 300
+            },
+            {
+                "description": "Gutter cleaning",
+                "rate": 85.00,
+                "quantity": 2,
+                "amount": 170
+            }
+        ],
+        "subtotal": 1324.37,
+        "tax": 92.71,
+        "total": 1417.08,
+        "balance_due": 1417.08
+    };
     return (
         <BrowserRouter>
             <Routes>
